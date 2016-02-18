@@ -7,6 +7,11 @@ Router.route('/dashboard', {
   controller: 'DashboardController'
 });
 
+Router.route('/quickprint',{
+  name: 'quickprint',
+  controller: 'QuickPrintController'
+});
+
 Router.plugin('ensureSignedIn', {
-  only: ['dashboard']
+  only: ['dashboard','quickprint']
 });

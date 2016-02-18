@@ -1,14 +1,39 @@
 <template name="dashboard">
-  <div class="template-dashboard">
-    <div class="page-header">
-      <h1>Dashboard</h1>
+    <div class="template-dashboard">
+        <div class="page-header">
+            <h1>Dashboard</h1>
+        </div>
+        <div class="container marketing">
+        <div class="row">
+            <div class="col-lg-4 dashboard-item">
+                <img class="img-circle " src="images/quick-print.png" alt="Generic placeholder image" width="140" height="140">
+                <h2>Quick Print</h2>
+                <p>Upload a new file (not to store), or an already stored and send it directly to any printer</p>
+                <p><a class="btn btn-default" href="{{pathFor 'quickprint'}}" role="button">View details &raquo;</a></p>
+            </div>
+            <!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+                <img class="img-circle" src="images/upload-icon.png" alt="Generic placeholder image" width="140" height="140">
+                <h2>Upload File</h2>
+                <p>Upload a file to your  personal cloud to print it later.</p>
+                <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+            </div>
+            <!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+                <img class="img-circle" src="images/reload-icon.png" alt="Generic placeholder image" width="140" height="140">
+                <h2>Reload Print-Credit</h2>
+                <p>Reload some print credit to your prepaid card.</p>
+                <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+            </div>
+            <!-- /.col-lg-4 -->
+        </div>
+        </div>
+
+        <!--<ul class="list-group">
+            {{#each items}}
+            <li class="list-group-item">{{ name }} <span class="label label-default">{{ rating }}</span></li>
+            {{/each}}
+        </ul>-->
+
     </div>
-
-    <ul class="list-group">
-      {{#each items}}
-        <li class="list-group-item">{{ name }} <span class="label label-default">{{ rating }}</span></li>
-      {{/each}}
-    </ul>
-
-  </div>
 </template>
