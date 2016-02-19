@@ -1,0 +1,30 @@
+<template name="upload">
+    <form class="uploadForm">
+            <div class="bar">
+                <button name="upload" type="button">Upload</button>
+            </div>
+            <table>
+                <thead>
+                <tr>
+                    <th></th>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Extension</th>
+                    <th>Size</th>
+                    <th>Uploading</th>
+                    <th>Complete</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {{#each files}}
+                    {{> file}}
+                {{else}}
+                    <tr>
+                        <td colspan="8" style="text-align: center">No file</td>
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+        </form>
+</template>

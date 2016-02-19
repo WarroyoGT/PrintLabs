@@ -1,9 +1,9 @@
 QuickPrintController = AppController.extend({
   waitOn: function() {
-    return this.subscribe('items');
+    return this.subscribe('files');
   },
   data: {
-    items: Items.find({})
+    files: Files.find({})
   },
   onAfterAction: function () {
     Meta.setTitle('Quick Print');
