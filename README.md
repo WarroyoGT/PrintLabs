@@ -24,11 +24,11 @@ this is the main repo for PrintLabs, cloud printing service based on Meteor usin
 - jalik:ufs-local
 
 
-**First install Meteor**
+**First install Meteor:**
 ``$ curl https://install.meteor.com/ | sh``
 
-**Then clone this repo**
+**Then clone this repo:**
 ``$ git clone https://github.com/WarroyoGT/PrintLabs.git``
 
-**Run the App**
+**Go to the installation directory and run the App:**
 ``$ meteor``

@@ -8,7 +8,28 @@ Template.upload.events({
                 var uploader = new UploadFS.Uploader({
                     data: data,
                     file: file,
-                    store: FilesStore
+                    store: FilesStore,
+                    onError: function(err) {
+                        console.error(err);
+                    },
+                    onAbort: function(file) {
+                        console.log(file.name + ' upload has been aborted');
+                    },
+                    onComplete: function(file) {
+                        console.log(file.name + ' has been uploaded');
+                    },
+                    onCreate: function(file) {
+                        console.log(file.name + ' has been created with ID ' + file._id);
+                    },
+                    onProgress: function(file, progress) {
+                        console.log(file.name + ' ' + (progress * 100) + '% uploaded');
+                    },
+                    onStart: function(file) {
+                        console.log(file.name + ' started');
+                    },
+                    onStop: function(file) {
+                        console.log(file.name + ' stopped');
+                    }
                 });
 
                 // Remove uploader on complete
