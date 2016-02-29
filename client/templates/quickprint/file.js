@@ -2,6 +2,7 @@ Template.file.events({
     'click [name=delete]': function(ev) {
         ev.preventDefault();
         Files.remove(this._id);
+        UploadedFiles.remove(this._id);
     },
     'click [name=abort]': function(ev) {
         ev.preventDefault();

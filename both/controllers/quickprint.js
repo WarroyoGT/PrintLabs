@@ -1,5 +1,6 @@
 QuickPrintController = AppController.extend({
   waitOn: function() {
+    this.subscribe('UploadedFiles');
     return this.subscribe('files');
   },
   data: {

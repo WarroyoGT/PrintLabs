@@ -1,10 +1,30 @@
-UploadFS.config.simulateWriteDelay = 500;
+FS.debug = true;
 Template.upload.events({
     'click [name=upload]': function(ev, tpl) {
         ev.preventDefault();
 
-        var callback = function(ev) {
-            UploadFS.readAsArrayBuffer(ev, function(data, file) {
+        var callback = function(event) {
+            FS.Utility.eachFile(event, function(file) {
+                UploadedFiles.insert(file, function (err, result) {
+
+                    if (err) {
+                        throw new Meteor.Error(err);
+                    }
+                    console.log(result);
+                    console.log(file);
+                    console.log(err);
+                    var fileLoc = '/cfs/files/UploadedFiles/'+result._id;
+                    Files.insert({
+                        userId: Meteor.userId,
+                        userName: Meteor.user().username,
+                        url :fileLoc,
+                        name : file.name,
+                        type: file.type,
+                        size: file.size
+                    })
+                });
+            });
+            /*UploadFS.readAsArrayBuffer(ev, function(data, file) {
                 var uploader = new UploadFS.Uploader({
                     data: data,
                     file: file,
@@ -44,7 +64,7 @@ Template.upload.events({
                     }
                 });
                 uploader.start();
-            });
+            });*/
         };
 
         var input = document.createElement('input');
